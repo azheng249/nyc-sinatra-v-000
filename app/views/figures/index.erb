@@ -1,0 +1,9 @@
+<a href="/figures/new" style="float: left">Create a new NYC historical figure.</a><br>
+
+<h2>New York City's Famous Children</h2>
+
+<ul style="list-style-type:none">
+  <% @figures.each do |figure| %>
+    <li><h4><a href="/figures/<%= figure.id %>"><%= figure.name %></a></h4></li>
+  <% end %>
+</ul>

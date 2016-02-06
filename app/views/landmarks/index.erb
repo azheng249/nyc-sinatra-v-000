@@ -1,0 +1,10 @@
+<a href="/landmarks/new">Create a new NYC historical landmark.</a><br>
+
+<h2>New York City's Historical Landmarks</h2>
+
+<ul style="list-style-type:none">
+  <% @landmarks.each do |landmark| %>
+    <li><h4><a href="/landmarks/<%= landmark.id %>"><%= landmark.name %></a></h4></li>
+    <ul><p>Year completed:    <%= landmark.year_completed %></p></ul>
+  <% end %>
+</ul>

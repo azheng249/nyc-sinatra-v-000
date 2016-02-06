@@ -1,10 +1,21 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Year Completed</th>
-  </tr>
-  <tr>
-    <td><%= @landmark.name %></td>
-    <td><%= @landmark.year_completed %></td>
-  </tr>
-<table>
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+
+<h2><a href="/landmarks">Landmarks</a></h2>
+<h2><a href="/figures">Figures</a></h2>
+
+<h4><%= @landmark.name.capitalize %></h4>
+
+<ul><p>Year Completed:    <%= @landmark.year_completed %></p></ul>
+
+<!-- if figure = Figure.find(figure_id), cause ActiveRecord error if figure_id is nil.  -->
+<!-- need to make figure assignment conditional on figure_id to avoid this  -->
+<% figure = Figure.find(@landmark.figure_id) if @landmark.figure_id %>
+<% if figure %>
+  <ul><p>In commemoration of:    <%= figure.name %></p></ul>
+<% end %>
+
+<form method="GET" action="/landmarks/<%= @landmark.id %>/edit">
+  <input type="submit" value="Edit">
+</form>

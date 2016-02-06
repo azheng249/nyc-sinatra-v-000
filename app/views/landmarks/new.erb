@@ -1,0 +1,25 @@
+<h2>Create a new historical landmark.</h2>
+
+<form method="POST" action="/landmarks">
+
+  <p>Name:    <input type="text" id="landmark_name" name="landmark[name]"></p><br>
+  <p>Year Completed:    <input type="text" id="landmark_year_completed" name="landmark[year_completed]"></p>
+
+  <!-- Select figure through existing figures or create a new figure with text input -->
+  <!-- If figure name selected, it takes priority to figure name text input -->
+  <p>Associated figure:</p><br>
+  <select name="landmark[figure_id]">
+    <option selected disabled value=''></option>
+    <% Figure.all.each do |figure| %>
+      <option value="<%=figure.id %>"><%= figure.name %></option>
+    <% end %>
+  </select>
+
+  <p>Figure not here. Make a new one:</p><br>
+  <input type="text" id="new_figure" name="figure[name]" placeholder="New figure name"><br>
+  <input type="text" id="new_figure" name="title[name]" placeholder="New figure title"><br>
+
+  <input type="submit" value="Create New Landmark">
+  <br>
+
+</form>

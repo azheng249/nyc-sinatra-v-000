@@ -1,0 +1,28 @@
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+
+<h2><a href="/figures">Figures</a></h2>
+<h2><a href="/landmarks">Landmarks</a></h2>
+
+<h4><%= @figure.name %></h4>
+
+<form method="GET" action="/figures/<%= @figure.id %>/edit">
+  <input type="submit" value="Edit">
+</form>
+
+<h4>Titles:</h4>
+<ul>
+  <% @figure.titles.each do |title| %>
+    <br><%= title.name %>
+  <% end %>
+</ul>
+
+<h4>Landmarks: </h4>
+<ul>
+<% @figure.landmarks.each do |landmark| %>
+
+  <br><%= landmark.name %>
+
+<% end %>
+</ul>
